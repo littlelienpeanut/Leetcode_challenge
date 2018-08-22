@@ -10,13 +10,11 @@ class Solution:
         :type head: ListNode
         :rtype: ListNode
         """
-        tmp = None
-        output = None
-
-        while (head != None):
-            output = head
+        pre = None
+        while (head):
+            curr = head
             head = head.next
-            output.next = tmp
-            tmp = output
-
-        return output
+            curr.next = pre
+            pre  = curr
+        
+        return pre

@@ -14,7 +14,7 @@ class Solution(object):
             slow = head
             fast = slow.next
             while (fast and slow):
-                if slow.val == fast.val:
+                if slow.next == fast.next:
                     return True
 
                 slow = slow.next

@@ -12,7 +12,7 @@ class Solution(object):
         if a != b:
             return False
         
-        if A == B and (len(list(a.keys())) <= len(A) and len(A) <= len(list(a.keys()))):
+        if A == B and len(a) == len(A):
             return False
         
         for i in range(len(A)):

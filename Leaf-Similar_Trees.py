@@ -12,16 +12,17 @@ class Solution(object):
         :type root2: TreeNode
         :rtype: bool
         """
-        def LDR(root):
-            if not root:
-                return []
-            
+        return self.LDR(root1) == self.LDR(root2)
+    
+    def LDR(self, root):
+        if not root:
+            return []
+
+        else:
+            if not root.left and not root.right:
+                return [root.val]
+
             else:
-                if not root.left and not root.right:
-                    return [root.val]
-                
-                else:
-                    return LDR(root.left) + LDR(root.right)
-        
-        return LDR(root1) == LDR(root2)
+                return self.LDR(root.left) + self.LDR(root.right)
+            
                 

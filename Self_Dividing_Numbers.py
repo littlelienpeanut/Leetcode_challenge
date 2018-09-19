@@ -1,4 +1,4 @@
-class Solution:
+class Solution(object):
     def selfDividingNumbers(self, left, right):
         """
         :type left: int
@@ -6,23 +6,17 @@ class Solution:
         :rtype: List[int]
         """
         output = []
-        for num in range(left, right+1, 1):
-            tmp_num = str(num)
-            for digit in range(len(tmp_num)):
-                if int(tmp_num[digit]) == 0:
-                    break
-
-                elif num % int(tmp_num[digit]) != 0:
-                    break
-
-                elif digit == len(tmp_num) - 1:
-                    if num % int(tmp_num[digit]) == 0:
-                        output.append(num)
-
-                else:
+        for i in range(left, right+1):
+            flag = 0
+            for num_i in str(i):
+                if int(num_i) != 0 and i % int(num_i) == 0:
                     pass
-
+                else:
+                    flag = 1
+                    break
+            if flag == 0:
+                output.append(i)
+            
+        
         return output
-
-
         

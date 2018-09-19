@@ -11,10 +11,11 @@ class Solution(object):
         :type root: Node
         :rtype: List[int]
         """
-        output, remain = [], [root]
-        while any(remain):
-            curr = remain.pop()
-            output.append(curr.val)
-            remain += [node for node in curr.children if curr]
-        
+        stack, output = [root], []
+        while stack:
+            node = stack.pop()
+            if node:
+                output.append(node.val)
+                stack.extend(node.children)
+
         return output[::-1]

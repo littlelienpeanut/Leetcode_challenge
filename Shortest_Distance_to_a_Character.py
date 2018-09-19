@@ -5,24 +5,14 @@ class Solution:
         :type C: str
         :rtype: List[int]
         """
-        res = []
+        p, result = [], []
         for i in range(len(S)):
             if S[i] == C:
-                res.append(0)
-            else:
-                MIN = 10000
-                for j in range(len(S)):
-                    if S[j] == C:
-                        if j-i < MIN:
-                            MIN = abs(j-i)
-                        else:
-                            pass
-
-                    elif MIN < abs(j-i):
-                        break
-
-                    else:
-                        pass
-                res.append(MIN)
-
-        return res
+                p.append(i)
+        
+        for i in range(len(S)):
+            result.append(min([abs(ind-i) for ind in p]))
+            
+        
+        return result
+                
